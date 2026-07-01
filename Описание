@@ -1,0 +1,212 @@
+## 1. **Основные компоненты**
+DataLoader
+Класс для загрузки данных из Alpha Vantage API:
+get_cash_flow_data(symbol): Получение данных о денежных потоках
+save_to_json(data, filename): Сохранение данных в JSON
+load_from_json(filename): Загрузка данных из JSON
+DataProcessor
+Класс для обработки данных:
+process_annual_reports(): Обработка годовых отчетов
+select_columns(columns): Выбор необходимых колонок
+convert_to_numeric(): Преобразование данных в числовой формат
+calculate_free_cashflow(): Расчет свободного денежного потока
+calculate_rolling_average(window): Расчет скользящей средней
+Visualizer
+Класс для визуализации данных:
+plot_operating_cashflow(): График операционного денежного потока
+plot_capital_expenditures(): График капитальных затрат
+plot_dividend_payout(): График дивидендных выплат
+plot_free_cashflow(): График свободного денежного потока
+plot_comparison(): Сравнительный график показателей
+Примеры визуализаций
+Проект генерирует следующие графики:
+Дивидендные выплаты Netflix - динамика дивидендных выплат по годам
+Операционный денежный поток и Капитальные затраты - сравнительный анализ
+Свободный денежный поток Netflix - динамика FCF с автоматической аннотацией значений
+Финансовые показатели
+Операционный денежный поток (OCF)
+Денежные средства, генерируемые основной деятельностью компании.
+Капитальные затраты (CapEx)
+Инвестиции в основные средства (оборудование, инфраструктура).
+Свободный денежный поток (FCF)
+FCF = Operating Cash Flow - Capital Expenditures
+Скользящее среднее
+Используется для сглаживания временных рядов и выявления трендов.
+Данные
+Проект использует данные из Alpha Vantage API:
+Источник: Alpha Vantage
+Тип данных: Годовые отчеты о денежных потоках (Cash Flow Statements)
+Период: 2005-2024 годы
+Компания: Netflix Inc. (NFLX)
+Зависимости
+pandas >= 2.0.0
+matplotlib >= 3.7.0
+requests >= 2.28.0
+numpy >= 1.24.0
+jupyter >= 1.0.0
+Результаты анализа
+Ключевые выводы из анализа Netflix:
+Значительный рост операционного денежного потока с 2019 года
+Отрицательный свободный денежный поток в период 2015-2019 годов
+Резкий переход к положительному FCF в 2020-2024 годах
+Умеренные капитальные затраты относительно операционного потока
+Лицензия
+MIT License - см. файл LICENSE для деталей.
+Автор
+Andrei Belash
+Контакты
+GitHub: @belashandrej-png
+Примечания
+API ключ Alpha Vantage не должен быть загружен в репозиторий
+Используйте переменные окружения для хранения конфиденциальных данных
+Проект создан в образовательных целях
+Roadmap
+Добавить квартальный анализ
+Интеграция с другими финансовыми API
+Расширенная статистическая аналитика
+Экспорт отчетов в PDF
+Интерактивные дашборды (Plotly/Dash)
+123456789101112131415161718192021
+
+
+## 2. **requirements.txt**
+
+```txt
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# API Requests
+requests>=2.28.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Jupyter
+jupyter>=1.0.0
+ipython>=8.0.0
+
+# Development
+python-dotenv>=1.0.0
+
+## 3. **.gitignore**
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pydev
+.pydevproject
+
+# celery
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Data files
+data/*.json
+data/*.csv
+output/*.png
+output/*.xlsx
+
+# API Keys
+.env
+.env.local
+*.key
+config.py
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
