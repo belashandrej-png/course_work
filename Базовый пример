@@ -1,0 +1,21 @@
+from src.data_loader import DataLoader
+from src.data_processor import DataProcessor
+from src.visualizer import Visualizer
+
+# Загрузка данных
+loader = DataLoader(api_key='your_api_key')
+data = loader.get_cash_flow_data(symbol='NFLX')
+
+# Обработка данных
+processor = DataProcessor(data)
+df = processor.process_annual_reports()
+
+# Выбор необходимых колонок
+columns = ['fiscalDateEnding', 'operatingCashflow', 
+           'capitalExpenditures', 'dividendPayout']
+df_selected = processor.select_columns(columns)
+
+# Визуализация
+viz = Visualizer(df_selected)
+viz.plot_operating_cashflow()
+viz.plot_free_cashflow()
